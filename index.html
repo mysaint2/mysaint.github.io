@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/demo.css"/>
+    <link rel="stylesheet" href="css/bg.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <script src="js/jquery-1.12.2.min.js"></script>
+
+
+</head>
+<body>
+<div class="all_bg" id="all_bg"></div>
+<div class="bg_pop" id="bg_pop">
+    <div class="close" id="close"></div>
+    <img src="images/years.png">
+</div>
+<!--轮播-->
+
+<div class="slider">
+    <ul class="slider-list">
+        <li class="slider-list__item slider-list__item_active">
+            <span class="back__element">
+                <img src="images/03.jpg"/>
+            </span>
+        </li>
+        <li class="slider-list__item">
+            <span class="back__element">
+                <img src="images/02.jpg"/>
+            </span>
+        </li>
+        <li class="slider-list__item">
+            <span class="back__element">
+                <img src="images/05.jpg"/>
+            </span>
+        </li>
+    </ul>
+    <div class="slider__nav-bar">
+        <a class="nav-control"></a>
+        <a class="nav-control"></a>
+        <a class="nav-control"></a>
+    </div>
+    <div class="slider__controls">
+        <a class="slider__arrow slider__arrow_prev"></a>
+        <a class="slider__arrow slider__arrow_next"></a>
+    </div>
+    <script src="js/demo.js"></script>
+</div>
+<div class="nav_right">
+    <img class="font" src="images/font.png">
+    <img class="font1" src="images/font1.png">
+    <span>成都</span>
+</div>
+
+<!-- COIDEA:demo END -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+
+
+<!-- scripts -->
+<script src="js/particles.js"></script>
+<script src="js/app.js"></script>
+<!--旋转-->
+
+<div id="particles-js">
+</div>
+<!-- scripts -->
+<script src="js/particles.js"></script>
+<script src="js/app.js"></script>
+
+<!--//明星项目-->
+<div class="all">
+    <div class="project">
+        <img src="images/title1.png">
+    </div>
+    <div class="project1">
+        <img src="images/6.jpg">
+        <img src="images/2.jpg">
+        <img src="images/3.jpg">
+        <img src="images/4.jpg">
+        <img src="images/5.jpg">
+        <img src="images/1.jpg">
+    </div>
+    <div class="project2">
+        <img src="images/006.jpg">
+        <img src="images/002.jpg">
+        <img src="images/003.jpg">
+        <img src="images/004.jpg">
+        <img src="images/005.jpg">
+        <img src="images/001.jpg">
+    </div>
+</div>
+
+<script>
+    var all = document.getElementById('all_bg');
+    var pop = document.getElementById('bg_pop');
+    window.onload = function () {
+        all.style.display = 'block';
+        pop.style.display = 'block';
+    }
+    var close = document.getElementById('close');
+    close.onclick = function () {
+        all.style.display = 'none';
+        pop.style.display = 'none';
+    };
+
+    //animate("选择器","动画","次数","时延")
+    function animate(seletor, animation_name, count, delay) {
+        var target = document.querySelectorAll(seletor)
+        var timer = null;
+        timer = setInterval( function() {
+            target.forEach( function(x) {
+                x.className += " animated " + animation_name;
+                x.addEventListener("animationend", function(){
+                    x.className = x.className.replace(" animated " + animation_name, "");
+                });
+            } )
+            count --;
+            if( count <= 0 ) {
+                clearInterval( timer );
+            }
+        }, delay)
+    }
+    //使用示例
+    animate('.project', "zoomInLeft", 100, 3000);
+    animate('.project1', "rotateInUpRight", 100, 3000);
+    animate('.project2', "rotateInUpLeft", 100, 3000);
+</script>
+
+</body>
+</html>
